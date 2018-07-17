@@ -1,0 +1,64 @@
+strong 	{ font-weight: bolder;
+		  color: black }
+ hr {  height: 5px;
+       color: Green;
+       background-color: Green;
+       border: none;
+
+p  	  { font-family:'Times New Roman', Times, serif;
+		font-size: 12pt;
+		color:black}
+
+em    { font-family: arial,helvetica, sans-serif;
+		font-weight: bolder;
+		color: black
+	   }
+
+h3     { color: Red;
+       }
+
+.swe {color:#000052;
+		font-size:40px;
+		width:500px;
+		}
+
+h1      {
+       	color: blue;
+    	  }
+
+a:link	{	
+		color: #306;
+		}
+
+a:visited {
+		   color: #606;
+		 }
+
+a:hover	 {
+		   color: #900;
+	   	}
+
+a:active {
+		    color: #900;
+		 }
+
+.heading {
+	      text-shadow: 3px 10px 12px #000;
+         }
+
+.surveyform  {
+		  border:5px;
+		  border-color:#333300;
+          }
+
+.star     {
+		   color:#E00000 ;
+		 }
+
+table.curvedEdges {
+					border:3px solid Green;
+                    -webkit-border-radius:7px;
+               	   -moz-border-radius:7px;
+            		-ms-border-radius:7px;
+            		-o-border-radius:7px;
+            		border-radius:7px; }

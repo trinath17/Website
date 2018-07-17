@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" type="text/css" rel="stylesheet" />
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery-ui.js" type="text/javascript"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
+<script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>
+<link rel="Stylesheet" type="text/css"
+	href="jquery-ui-1.10.4.custom.css" />
+
+<title>Survey Page</title>
+<script>
+$(function(){
+$(".Tooltip").tooltip();
+</script>
+<script>
+$('textdata').keypress(function(event) {
+    var keyCode = event.keyCode;
+    if ( ! (keyCode >= 48 && keyCode <= 57) && keyCode != 188) {
+          event.preventDefault();
+    }
+});
+
+
+function ValidateForm()
+{
+	
+	var ElementFocus = [];
+	
+	var name = document.getElementById("name").value;
+	if(name == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("name").value = "";
+		ElementFocus.push("name");
+	}
+	else if(!name.match(/^[A-z]+$/))
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		
+		document.getElementById("name").value = "";
+		ElementFocus.push("name");		
+	}
+	
+	var address = document.getElementById("Address").value;
+	if(address == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("Address").value = "";
+		ElementFocus.push("Address");
+	}
+	else if(!address.match(/^[A-z0-9]+$/))
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		
+		document.getElementById("Address").value = "";
+		ElementFocus.push("Address");		
+	}
+/*	var city = document.getElementById("city").value;
+	if(!name.match(/^[A-z]+$/))
+	{
+		error.push("City should contain only alphabets");
+		document.getElementById("city").value = "";
+		ElementFocus.push("city");		
+	}
+	var state = document.getElementById("state").value;
+	if(!name.match(/^[A-z]+$/))
+	{
+		error.push("State should contain only alphabets");
+		document.getElementById("state").value = "";
+		ElementFocus.push("state");		
+	}*/
+	var Zip = document.getElementById("zip1").value;
+	if(Zip == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("zip1").value = "";
+		ElementFocus.push("zip1");
+	}
+	else if(!Zip.match(/^[0-9]+$/))
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("zip1").value = "";
+		ElementFocus.push("zip1");		
+	}
+var email = document.getElementById("Mail").value
+	if (email == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("Mail").value = "";
+		ElementFocus.push("Mail");
+	}
+	else if(!email.match(/^[\_]*([a-z0-9]+(\.|\_*)?)+@([a-z][a-z0-9\-]+(\.|\-*\.))+[a-z]{2,6}$/))
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("Mail").value = "";
+		ElementFocus.push("Mail");		
+	}
+
+
+		var url = document.getElementById("url").value
+	if (url == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("url").value = "";
+		ElementFocus.push("url");
+	}
+		var date = document.getElementById("Date").value
+	if (date == "")
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		document.getElementById("Date").value = "";
+		ElementFocus.push("Date");
+	}
+
+
+
+	var elements = document.getElementsByTagName("input");
+	noOfCheckBoxes =0;
+	for(var i =0; i<elements.length;i++)
+	{
+		if(elements[i].type === "checkbox" && elements[i].checked === true)
+		{
+			noOfCheckBoxes++;
+		}
+		
+	}
+	if(noOfCheckBoxes <2)
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		ElementFocus.push("campus");	
+	}
+	//var elements = document.getElementsByName("input");
+	noOfRadioButtons =0;
+	for(var i =0; i<elements.length;i++)
+	{
+		if(elements[i].type === "radio" && elements[i].checked === true)
+		{
+			noOfRadioButtons++;
+		}
+	}
+	if(noOfRadioButtons <1)
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		ElementFocus.push("university");	
+	}
+	var errorMessage = "";
+    if (error.length > 0)
+    {
+    	for (var i = 0; i < error.length; i++)
+        {
+            errorMessage = errorMessage + error[i] + "\n";
+        }
+
+         alert(errorMessage);
+         var focusElement = ElementFocus[0];
+         document.getElementById(focusElement).focus();
+    }
+}
+function DataCheck()
+{
+	//get the textarea content
+	var data = document.getElementById("textdata").value;
+	var values = data.split(',');
+	//checking for empty at the last value
+	if(values[(values.length)-1] == "")
+	{
+		values.length--;
+	}
+	//to remove empty entries
+	/*for(var i=0;i<values.length;i++)
+	{
+		
+		//alert(values[i]);
+		if(values[i] == "")
+		{
+			values[i]= values[i+1];
+		}
+	}*/
+	//alert(values);
+	//Checking for 10 entires and updating maximum and average values
+	if(values.length >=10)
+	{
+		var count = 0;
+		var x =0,y =0;
+		for(var i=0;i<values.length;i++)
+		{
+			x=values[i];			
+			count = count + parseInt(values[i]);			
+			y = Math.max(x,y);
+		}
+		
+		count = count/(values.length);
+		document.getElementById("average").innerHTML = count;
+		document.getElementById("maximum").innerHTML = y;
+	}
+	else
+	{
+		$("#dialog").text("Please enter valid information");
+        $("#dialog").dialog();
+		$("textarea").focus();
+	}
+}
+</script>
+</head>
+
+<body>
+<table align="center"  cellpadding="0" cellspacing="0" width="1000">
+<tr> <td>
+	<a href ="http://cs.gmu.edu"> <img  src="http://brand.gmu.edu/wp-content/uploads/assets/primarylogo/Mac/GMU_PLogo_RGB.jpg" alt="MasonLogo" width="200" height="100" / > </a> </td>    
+       <td  align="center">
+<p style ="font-size: 50px "; "width:500px" ;>George Mason University</p></td>
+</table>
+<hr/>
+
+<div class="surveyform" align="center">
+
+
+<h1 class="heading"> Survey Form :</h1>
+<table border="1px" align="center" class="surveyform" cellpadding="10" cellspacing="0">
+
+
+	<form action="ShowValues" onclick="#" name="surveyform" method="post" autocomplete="on">
+			<tr>
+		<td align="center" colspan="3">
+<span class="star"><strong>Student ID :</strong></span><br>
+<input type="text" id="studentid" name="studentid" required="required" ></textarea>
+</td>
+		</tr>
+        <tr>
+            <td>
+            	<label><strong><span class="star">* </span>User Name :</strong></label><br>
+                <input id="name" type="text" maxlength="40" name="username" placeholder="Full Name" required= "required" autofocus="true" /> 
+            </td>
+       
+            <td>
+            	<label><strong><span class="star">* </span>Street Address :</strong></label><br>
+                <input id="Address" type="text" maxlength="40" name="Address"  required= "required"/> 
+            </td>
+        <td>
+            	<label><strong><span class="star">* </span>E-Mail :</strong></label><br>
+                <input id="Mail" type="email" maxlength="40" name="Mail" placeholder="example@domain.com" required= "required"/> 
+            </td>
+           
+        </tr>
+  		<tr>
+            <td>
+            	<label><strong><span class="star">* </span>State :</strong></label><br>
+                <input type="text" id="state1" type="text" maxlength="40" name="State"  />
+            </td>
+            
+                  <td>
+            	<label><strong><span class="star">* </span>City :</strong></label><br>
+                <input type="text"  id="city1" type="text" maxlength="40" name="City" />
+            </td>
+			 <td>
+            	<label><strong><span class="star">* </span>Zip :</label></strong><br>
+                <input id="zip1" type="text" maxlength="5" name="zip" placeholder="22030" required= "required" onblur = "ZipData()"/> 
+                <span id="zipError" style="color:#F00"></span>
+            </td>
+
+
+
+        </tr>
+  		<tr>
+            <td>
+            	<label><strong><span class="star">* </span>URL :</strong></label><br>
+                <input id="url" type="url" maxlength="40" name="url" placeholder="http://www.gmu.edu" required= "required"/> 
+            </td>
+        
+            <td>
+            	<label><strong><span class="star">* </span>Date Of Survey:</strong></label><br>
+                <input id="Date" type="date" maxlength="40" name="Dos" placeholder="MM-DD-YYYY" required= "required"/> 
+            </td>
+        
+            <td>
+            	<label><strong><span class="star">* </span>Phone Number :</strong></label><br>
+                <input id="Phone" type="tel" maxlength="40" name="Phone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" placeholder="xxx-xxx-xxxx" required= "required"/> 
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            <label><strong>What did you like the most about the Campus?</strong></label><br>
+             <table>
+                    <tr>
+                        <td>
+                            <input id="check" type="checkbox" name="campue" value="student" class="check" />
+                            <label>Students</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="campue" value="location" class="check" />
+                            <label>Location</label>
+                        </td>
+                        <td>
+                        	<input type="checkbox" name="campue" value="campus" class="check" />
+                            <label>Campus</label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <input type="checkbox" name="campue" value="atmosphere" class="check" />
+                            <label>Atmosphere</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="campue" value="dorrooms" class="check" />
+                            <label>Dorm Rooms</label>
+                        </td>
+                        <td>
+                        	<input type="checkbox" name="campue" value="sports" class="check" />
+                            <label>Sports</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+      
+            <td>
+            <label><strong>What did you become intrested in the University?</strong></label><br>
+            <table align="left">
+                    <tr>
+                        <td>
+                            <input id="radio" type="radio" name="university" value="friends"  class="radio"/>
+                            <label>Friends</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="university" value="television" class="radio" />
+                            <label>Television</label>
+                        </td>                        
+                      	<td>
+                        	<input type="radio" name="university" value="internet" class="radio" />
+                            <label>Internet</label>
+                        </td>
+                        <td>
+                        	<input type="radio" name="university" value="other" class="radio" />
+                            <label>Other</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        
+            <td>
+            	<label><strong>Comments:</strong></label><br>
+                <textarea name="comments" rows="4" cols="10"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            	<label><strong><span class="star">* </span>High School Graduation :</strong></label><br>
+                <input list="datalist" placeholder="Select a Month" required="required" name="month" list="month"/>
+            	<datalist id="datalist">
+                	<option value="January">
+            		<option value="February">
+            		<option value="March">
+                    <option value="April">
+                    <option value="May">
+                    <option value="June">
+                    <option value="July">
+                    <option value="August">
+                    <option value="September">
+                    <option value="October">
+                    <option value="November">
+                    <option value="December">
+                </datalist>
+                <label><span class="star">* </span>Year :</label>
+                <input type="text" width="4" maxlength="4" name="year" placeholder="yyyy" required="required" />
+            </td>
+       
+        	<td>
+           		<table>
+                	<tr>
+                    	<td>
+                        <label><strong><span class="star">*</span>Data </strong></label><br>
+                    	<textarea name="data" id="textdata" required="required" onblur="DataCheck()"></textarea>
+                        </td>
+                        
+                     </tr>
+                </table>
+            </td>
+       
+        	<td>
+            	<label><strong>Recommend the School to other Students :</strong></label><br>
+                <select name="likelihood">
+                	<option selected = "selected">Very Likely</option>
+                    <option value="Likely">Likely</option>
+                    <option value="ULikely">Unlikely</option>
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
+		
+            <td align="center" colspan="3">
+            	<input type="submit" name="Submit" value="Submit" align="middle" id="Submit" onclick="return ValidateForm()"/>
+                <input type="reset" name="Reset" value="Reset" align="middle" id="Reset"/>
+            </td> 
+        </tr>
+</form>
+</table>
+</div>
+<table align="center" width="1000" cellpadding="0" cellspacing="0">
+	<hr>
+	<td  style="font-size:30px" align="center">  <strong> Thrinath Reddy Shaga </strong>  </td>
+        <td  style="font-size:30px" align="center">  <strong> G01034034 </strong>  </td>        
+	<td align="right" ><a href="http://www.gmu.edu/"/> <img src="http://brand.gmu.edu/wp-content/uploads/assets/primarylogo/Mac/GMU_PLogo_RGB.jpg" width="210" height="140" /> </a> </td>	
+</table>
+
+
+</body>
+  <script type = "text/javascript">
+
+
+function ZipData()
+{
+	var xmlhttp;
+	var Url= "ZipCode.json";
+	var zip2= document.getElementById("zip1").value;
+	if (window.XMLHttpRequest)
+	  {
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+		var data = xmlhttp.responseText;
+	    var zc= JSON.parse(data);
+	    var i,flag=0;
+	    for(i=0; i<zc.zipcodes.length; i++)
+		{
+	    if(zc.zipcodes[i].zip==zip2)
+		{
+	    flag=1;
+	   break;
+	    }
+	  }
+	  if(flag==1)
+	  {
+	  document.getElementById( "city1" ).value =zc.zipcodes[i].city; 
+	  document.getElementById( "state1" ).value =zc.zipcodes[i].state;
+	  }
+	  else
+	  {
+	  alert("Invalid Zip");
+	  document.getElementById("zip1").innerHTML="";
+	  document.getElementById("zip1").focus();
+	  document.getElementById("zp").innerHTML = "Invalid zip, please enter a valid zip"; 
+	  document.getElementById("city1").value = "";
+	  document.getElementById("state1").value = "";
+	  }
+	  }
+	 }
+	xmlhttp.open( "GET",Url, true );
+	xmlhttp.setRequestHeader("Accept","application/json; charset=utf-8" );
+	xmlhttp.send();
+	}
+	</script>
+</html>

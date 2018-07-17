@@ -1,0 +1,722 @@
+
+<html>
+<head>
+<meta charset="utf-8" />
+<title>SHAGA SWE 642 </title>
+<style type = "text/css"> 
+  		 strong  { font-weight: bolder;color: black; }
+				
+		p   { font-family:'Times New Roman', Times, serif; color:black; font-size: 12pt;}
+				
+		em   { font-family: arial,helvetica, sans-serif; font-weight: bolder; color: black; }
+				
+				
+               hr {
+                    height: 5px;
+                    color: Green;
+                    background-color: Green;
+                    border: none;
+			}
+		h1    {
+             		color: blue;
+              	       }
+                h2{
+                     color :Green;
+                      }
+		h3
+                   {
+	             color: Red;
+                   }
+		.main
+               {
+	              text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+                }
+
+	</style> 
+
+</head>
+
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery-ui.js" type="text/javascript"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
+<script>
+$(function() {
+    $( "#tabs" ).tabs({ active: 0});
+	    $("#cookie").click(cookie);
+$( document ).tooltip();
+});
+  
+ function cookie()
+{
+ var now = new Date(); 
+ var hour = now.getHours(); 
+ var name;
+ var time;
+
+ if ( hour < 12 ) 
+ 
+ time = "<h4>Good Morning, ";
+  else
+ {
+ hour = hour - 12; 
+
+ if ( hour < 4)
+  time = "<h4>Good Afternoon, ";
+ else
+  time = "<h4>Good Evening, ";
+ } 
+ if ( document.cookie )
+ {
+ var myCookie = unescape( document.cookie );
+ var cookieTokens = myCookie.split( "=" );
+ name = cookieTokens[ 1 ];
+ }
+ else
+ {
+ name = window.prompt( "Please enter your name", "" );
+ document.cookie = "name=" + escape( name );
+ } 
+ var str1= time + name + ", welcome to Assignment3!!!</h4><br />" ;
+ var obj1 = document.getElementById("cookie_ex");
+ obj1.innerHTML = str1;
+ var str2 =  "<div align=center><a href = 'javascript:wrongPerson()' align=center> " +  
+   "Click here if you are not " + name + "</a> </div><br />" ;
+ var obj2 = document.getElementById("cookie_change");
+ obj2.innerHTML = str2;
+}
+ function wrongPerson()
+ {
+ document.cookie= "name=null;" +
+ " expires=Thu, 01-Mar-2014 00:00:01 GMT";
+ cookie();
+ } 
+ 
+
+</script>
+
+</head>
+
+<body bgcolor="White">
+
+<div id="tabs">
+<ul>
+<li><a href="#tab-1">Assignment 1</a></li>
+<li><a href="#tab-2">Assignment 2</a></li>
+<li><a href="#tab-3" id="cookie">Assignment 3</a></li>
+<li><a href="#tab-4">Survey Form</a></li>
+<li><a href="#tab-5" >Assignment 4</a></li>
+</ul>
+
+<div align="center" id="tab-1" >
+ <p><h1 align = "center"  > <font color=" #336600"  >GEORGE MASON UNIVERSITY </font> </h1> </p>
+<p>  <h1   align = "center"> <font color=" #FFCC00">DEPARTMENT OF COMPUTER SCIENCE </font> </h1> </p> 
+ <b> <hr> </b> 
+
+   <img id="tooltip-3" src="http://brand.gmu.edu/wp-content/uploads/downloads_logos.jpg" alt="GMU logo" title="Please Visit http://www.gmu.edu For More Information</strong>"/>
+      <br><br><br>  
+
+<table>
+<tr><td><p><b><font size="4" color="#000000" align="center"> Thrinath Reddy Shaga</font></b></p></td></tr>
+<tr><td><p><b><font size="4" color="#000000" align="center">G# : G01034034</font></b></p></td></tr>
+<tr><td><p><b><font size="4" color="#000000" align="center">Email: tshaga@gmu.edu</font></b></p></td></tr>
+<tr><td><p><b><font size="4" color="#000000" align="center">Department of Computer Science</font></b></p></td></tr>
+<tr><td><p><b><font size="4" color="#000000" align="center">George Mason University</font></b></p></td></tr>
+</table><br>
+<br><br><br><br><br>
+<br><br><br><br>
+
+</div>
+
+ <div id="tab-2">
+<table align="center"  cellpadding="0" cellspacing="0" width="1000">
+<tr> <td>
+	<a href ="http://cs.gmu.edu"> <img  id="tooltip-3" src="http://cs.gmu.edu/static/images/logo.png" alt="department of computer science" width="100%" title = "Please Visit http://www.gmu.edu For More Information"/ > </a> </td>    
+</table>
+
+<hr/>
+         
+<table align="center" width="1000" cellpadding="0" cellspacing="0">
+    <tr>
+    	<td>
+       		 <h1 class="main" align="center">Department of Computer Science</h1>
+        </td>
+    </tr>
+
+      <tr>
+        <th align="center">
+        	<img id="tooltip-3" src=" http://cs.gmu.edu/media//uploads/blog/default-image.jpg" title="Please Visit http://www.gmu.edu For More Information</strong>" width="100%" height="300"/>  
+        </th>
+    </tr>
+       <td>
+        	<p align="justify" >Welcome to the <strong> Department of Computer Science </strong>. The graduate program leading to an MS in Computer Science prepares students for research and professional practice in computer science and related technologies. The program includes both fundamentals and advanced work in the areas of artificial intelligence and databases, programming languages and software engineering, systems and networks, theoretical computer science, and visual computing. Graduate classes are divided into basic classes, which have no graduate course prerequisite, and advanced classes, which have a graduate class as a prerequisite. Graduate classes are generally offered in the late afternoon and evening. Financial aid in the form of graduate assistantships may be available for full-time degree-seeking students.
+<br> 
+<h2>Courses Offered :</h2>
+<p align = "justify">The CS department offers undergraduate courses with the CS and SWE prefixes, and graduate courses with the CS, INFS, ISA and SWE prefixes.</p>
+
+<p>The <a href="http://catalog.gmu.edu">Mason catalog</a> contains the official descriptions for courses offered by the CS department.</p>
+<ul>
+<li><a href="http://catalog.gmu.edu/preview_course_incoming.php?cattype=combined&amp;prefix=cs" target="_blank">Computer Science (CS)</a> courses</li>
+<li> <a href="http://catalog.gmu.edu/preview_course_incoming.php?cattype=combined&amp;prefix=infs" target="_blank">Information Systems (INFS)</a> courses </li>
+<li><a href="http://catalog.gmu.edu/preview_course_incoming.php?cattype=combined&amp;prefix=isa" target="_blank"> Information Security &amp; Assurance (ISA)</a> courses</li>
+<li> <a href="http://catalog.gmu.edu/preview_course_incoming.php?cattype=combined&amp;prefix=swe" target="_blank">Software Engineering (SWE)</a> courses</li>
+</ul>
+
+<strong>Useful Links :</strong>
+<br>
+<a href="http://catalog.gmu.edu/"/> Mason Catalog </a>
+<br>
+<a href="http://volgenau.gmu.edu/" /> Volgenau School of Engineering </a> 
+<br>
+<a href= "http://gmu.edu"/> George Mason University. </a> </t> </p>
+        </td>
+    
+</tr>
+	 
+	
+	<tr>
+   	  <td>
+        	<h3>Computer Science  Masters Degree Requirements :</h3>
+        		<p> Courses are grouped in the following <strong>five broad areas</strong>. The list of core courses with their areas is provided below. </p>
+            <ol> <strong>
+            	<li>Artificial Intelligence and Databases.</li>
+                <li>Programming Languages and Software Engineering.</li>
+                <li>Systems and Networks.</li>
+                <li>Theoretical Computer Science.</li>
+                <li>Visual Computing.</li>
+               </strong>
+          	</ol>
+        </td>
+    </tr>
+
+    <tr>
+   	  <td>
+        	<h3>Artificial Intelligence and Databases:</h3>
+        		<ol>
+            	<li>CS 550 - Database Systems </li>
+                <li>CS 580 - Introduction to Artificial Intelligence</li>
+                <li>CS 584 - Theory and Applications of Data Mining</li>
+          	</ol>
+        </td>
+    </tr>
+	 <tr>
+   	  <td>
+                <h3>Programming Languages and Software Engineering :</h3>
+			<ol>
+            	<li>CS 540 - Language Processors</li>
+                <li>SWE 619 - Object-Oriented Software Specification and Construction</li>
+                <li>SWE 621 - Software Modeling and Architectural</li>
+          	</ol>
+        </td>
+    </tr>
+ <tr>
+   	  <td>
+        	<h3>Systems and Networks :</h3>
+			<ol>
+            	<li>CS 555 - Computer Communications and Networking</li>
+                <li>CS 571 - Operating Systems Credits</li>
+                <li>ISA 562 - Information Security Theory and Practice</li>
+          	</ol>
+        </td>
+    </tr>
+<tr>
+   	  <td> 
+
+        	<h3>Theoretical Computer Science :</h3>
+			<ul>
+            	<li>CS 583 - Analysis of Algorithms</li>
+          	</ul>
+        </td>
+    </tr>
+<tr>
+   	  <td>
+        	<h3>Visual Computing :</h3>
+			<ul>
+            	<li>CS 551 - Computer Graphics</li>
+          	</ul>
+        </td>
+    </tr>
+
+    <tr>
+        <th align="center">
+        	<a style="link color:Blue " href="SurveyForm_Shaga.html"> please click here to take a brief survey </a>
+        </th>
+    </tr>
+	</table> 
+	<table align="center" width="1000" cellpadding="0" cellspacing="0">
+	<hr>
+ 
+	<tr >
+	<td  class ="main" style="font-size:30px" align="center">  <strong> Thrinath Reddy Shaga </strong>  </td>
+        <td  class ="main" style="font-size:30px" align="center">  <strong> G01034034 </strong>  </td>        
+	<td align="right" ><a href="http://www.gmu.edu/"/> <img id= "tooltip-3" src="http://brand.gmu.edu/wp-content/uploads/assets/primarylogo/Mac/GMU_PLogo_RGB.jpg" title="Please Visit http://www.gmu.edu For More Information" " width="210" height="140" /> </a> </td>
+	
+	</tr>
+</table>
+</div>
+<hr>
+
+<div id="tab-3">
+  <table align="center"  cellpadding="0" cellspacing="0" width="1000">
+<tr> <td>
+	<a href ="http://cs.gmu.edu"> <img  id="tooltip-3" src="http://brand.gmu.edu/wp-content/uploads/assets/primarylogo/Mac/GMU_PLogo_RGB.jpg" title="Please Visit http://www.gmu.edu For More Information" alt="MasonLogo" width="200" height="100" / > </a> </td>    
+       <td  align="center"><p style ="font-size: 50px "; "width:500px" ;>George Mason University</p></td>
+</table>
+<hr/>
+
+<div  align="center">
+<h1 class="heading">  Survey Form:</h1>
+
+<table class="curvedEdges"  border="5" align="center" class="survey" cellpadding="10" cellspacing="0">
+
+
+	<form  name="surveyform" method="post" autocomplete="on">
+        <tr>
+            <td>
+            	<label>*<strong> User Name : </strong></label>
+                <input id="name" type="text" maxlength="20" name="firstname" placeholder="FirstName LastName" required= "required" autofocus="true" /> 
+            </td>
+        </tr>
+		
+  		<tr>
+            <td>
+            	<label>*<strong> Address :</strong> </label>
+                <input id="Address" type="text" maxlength="60" name="Address"  required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong>City : </strong></label>
+                <input id="City" type="text" maxlength="20" name="City"  required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong> State : </strong></label>
+                <input id="State" type="text" maxlength="15" name="State" placeholder="Enter your state" required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong> Zip : </strong></label>
+                <input id="Zip" type="text" maxlength="5" name="Zip" placeholder="12345" required= "required"/> 
+            </td>
+        </tr>
+		 <tr>
+            <td>
+            	<label>* <strong> Phone : </strong> </label>
+                <input id="Phone" type="tel" maxlength="12" name="Phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong> Email : </strong></label>
+                <input id="Mail" type="email" maxlength="40" name="Mail" placeholder="abc@xyz.com" required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong> URL : </strong></label>
+                <input id="url" type="url" maxlength="40" name="url" placeholder="http://www.abc.com" required= "required"/> 
+            </td>
+        </tr>
+  		<tr>
+            <td>
+            	<label>* <strong> Date of Survey: </strong></label>
+                <input id="Date" type="date" maxlength="10" name="Date" placeholder="MM/DD/YYYY" required= "required"/> 
+            </td>
+        </tr>        
+      
+        <tr>
+            <td>
+            <label>* <strong>What you like the most about the campus? </strong></label>
+			<br> 
+             <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="campus" value="student"  />
+                            <label>Students</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="campus" value="location" />
+                            <label>Location</label>
+                        </td>
+                        <td>
+                        	<input type="checkbox" name="campus" value="campus" />
+                            <label>Campus</label>
+                        </td>
+						<td>
+                            <input type="checkbox" name="campus" value="atmosphere" />
+                            <label>Atmosphere</label>
+                        </td>
+						 <td>
+                            <input type="checkbox" name="campus" value="dorrooms" />
+                            <label>Dorm Rooms</label>
+                        </td>
+						<td>
+                        	<input type="checkbox" name="campus" value="sports" />
+                            <label>Sports</label>
+                        </td>
+                    </tr>
+                     
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            <label>* <strong> What made you know about the university? </strong> </label>
+            <br>
+            <table align="left">
+                    <tr>
+                        <td> 
+                            <input type="radio" name="university" value="friends" checked="checked" />
+                            <label>Friends</label>
+                        </td>
+                        <td>
+                            <input type="radio" name="university" value="television" />
+                            <label>Television</label>
+                        </td>                        
+                      	<td>
+                        	<input type="radio" name="university" value="internet" />
+                            <label>Internet</label>
+                        </td>
+                        <td>
+                        	<input type="radio" name="university" value="other" />
+                            <label>Other</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+            	<label>* <strong> Graduated on: Month</strong> </label>
+                <input list="datalist" placeholder="Select" required="required" />
+            	<datalist id="datalist">
+                    <option value="January">
+                    <option value="February">
+                    <option value="March">
+                    <option value="April">
+                    <option value="May">
+                    <option value="June">
+                    <option value="July">
+                    <option value="August">
+                    <option value="September">
+                    <option value="October">
+                    <option value="November">
+                    <option value="December">
+                </datalist>
+                <label>* <strong> Year : </strong> </label>
+                <input type="text" width="4" maxlength="4" placeholder="yyyy" required="required" />
+            </td>
+        </tr>
+<tr>
+        	<td>
+           		<table>
+                	<tr>
+                    	<td>
+                        <label>* <strong> Data </strong> </label>
+                        <br>
+                    	<textarea id="num" required="required"  placeholder="Enter 10 comma separated numbers" rows="3" cols ="30" onblur="getData()"></textarea>
+                        </td>
+                       <br>
+                      <tr>
+                       <td>
+                        <label> <strong> Maximum : </strong> </label>
+                        <input  type = "text" id="maximum" ></label>
+                        </td></tr>
+                     
+                    <tr>
+                        <td>
+                        <label> <strong> Average : </strong> </label>
+                        <input type = "text" id="average" ></label>
+                        </td>
+                     </tr>
+                     </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+        	<td>
+            	<label>* <strong> I would like to recommend to others </strong> <i></label>
+                <select>
+                    <option value="VLikely">Very Likely</option>
+                    <option value="Likely">Likely</option>
+                    <option value="ULikely">Unlikely</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td  >
+            	<label> <strong> Comments: </strong></label>
+                 <br>
+				 <textarea rows="3" cols="30"></textarea>
+                                <input type="submit" name="Submit" value="Submit" align="middle" id="Submit"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+            	<input type="submit" name="Submit" value="Submit Form" align="middle" id="Submit" onclick="return Validation()"/>
+                <input type="reset" name="Reset" value="Reset All" align="middle" id="Reset"/>
+            </td>
+        </tr>
+</form>
+</table>
+</div>
+<table align="center" width="1000" cellpadding="0" cellspacing="0">
+	<hr>
+	<td  style="font-size:30px" align="center">  <strong> Thrinath Reddy Shaga </strong>  </td>
+        <td  style="font-size:30px" align="center">  <strong> G01034034 </strong>  </td>        
+	<td align="right" ><a href="http://www.gmu.edu/"/> <img id="tooltip-3"src="http://brand.gmu.edu/wp-content/uploads/assets/primarylogo/Mac/GMU_PLogo_RGB.jpg" title="Please Visit http://www.gmu.edu For More Information" width="210" height="140" /> </a> </td>	
+</table>
+</div>
+
+<div id="tab-4">
+<iframe width ="900" height="1500" src="SurveyForm_Shaga.html"></iframe>
+
+</div>
+
+</div>
+<div id="tab-5">
+ 
+<iframe width ="1200" height="1000" src="formtable.html"></iframe>
+
+</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+function ZipData()
+{
+var xmlhttp;
+var Url= "ZipCode.json";
+var zip2= document.getElementById("zip1").value;
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+	var data = xmlhttp.responseText;
+    var zc= JSON.parse(data);
+    var i,flag=0;
+    for(i=0; i<zc.zipcodes.length; i++)
+	{
+    if(zc.zipcodes[i].zip==zip2)
+	{
+    flag=1;
+   break;
+    }
+  }
+  if(flag==1)
+  {
+  document.getElementById( "city1" ).innerHTML =zc.zipcodes[i].city; 
+  document.getElementById( "state1" ).innerHTML =zc.zipcodes[i].state;
+  }
+  else
+  {
+  alert("Invalid Zip");
+  document.getElementById("zip1").innerHTML="";
+  document.getElementById("zip1").focus();
+  document.getElementById("zipError").innerHTML = "Invalid zip, please choose a zipcode among 22030, 22312, 22301, 20148"; 
+  document.getElementById("city1").value = "";
+  document.getElementById("state1").value = "";
+  }
+  }
+ }
+xmlhttp.open( "GET",Url, true );
+xmlhttp.setRequestHeader("Accept","application/json; charset=utf-8" );
+xmlhttp.send();
+}
+
+function ValidateForm()
+{
+	var error = [];
+	var ElementFocus = [];
+	
+	var name = document.getElementById("name").value;
+	if(name == "")
+	{
+		error.push("Please Enter Name");
+		document.getElementById("name").value = "";
+		ElementFocus.push("name");
+	}
+	else if(!name.match(/^[A-z]+$/))
+	{
+		error.push("Name should contain only alphabets");
+		document.getElementById("name").value = "";
+		ElementFocus.push("name");		
+	}
+	
+	var address = document.getElementById("Address").value;
+	if(address == "")
+	{
+		error.push("Please enter address");
+		document.getElementById("Address").value = "";
+		ElementFocus.push("Address");
+	}
+	else if(!address.match(/^[a-zA-Z\s\d]*$/i))
+	{
+		error.push("Address should contain alphanumeric characters");
+		document.getElementById("Address").value = "";
+		ElementFocus.push("Address");		
+	}
+
+    
+/*	var city = document.getElementById("city").value;
+	if(!name.match(/^[A-z]+$/))
+	{
+		error.push("City should contain only alphabets");
+		document.getElementById("city").value = "";
+		ElementFocus.push("city");		
+	}
+	var state = document.getElementById("state").value;
+	if(!name.match(/^[A-z]+$/))
+	{
+		error.push("State should contain only alphabets");
+		document.getElementById("state").value = "";
+		ElementFocus.push("state");		
+	}*/
+	var Zip = document.getElementById("Zip").value;
+	if(Zip == "")
+	{
+		error.push("Please enter Zip Code");
+		document.getElementById("Zip").value = "";
+		ElementFocus.push("Zip");
+	}
+	else if(!Zip.match(/^[0-9]+$/))
+	{
+		error.push("Zip Code should contain only Numbers");
+		document.getElementById("Zip").value = "";
+		ElementFocus.push("Zip");		
+	}
+	var email = document.getElementById("Mail").value
+	if (email == "")
+	{
+		error.push("please enter email");
+		document.getElementById("Mail").value = "";
+		ElementFocus.push("Mail");
+	}
+	else if(!email.match(/^[\_]*([a-z0-9]+(\.|\_*)?)+@([a-z][a-z0-9\-]+(\.|\-*\.))+[a-z]{2,6}$/))
+	{
+		error.push("email entered is not valid");
+		document.getElementById("Mail").value = "";
+		ElementFocus.push("Mail");		
+	}
+
+
+		var url = document.getElementById("url").value
+	if (url == "")
+	{
+		error.push("please enter URL");
+		document.getElementById("url").value = "";
+		ElementFocus.push("url");
+	}
+		var date = document.getElementById("Date").value
+	if (date == "")
+	{
+		error.push("please enter date");
+		document.getElementById("Date").value = "";
+		ElementFocus.push("Date");
+	}
+
+	var elements = document.getElementsByTagName("input");
+	noOfCheckBoxes =0;
+	for(var i =0; i<elements.length;i++)
+	{
+		if(elements[i].type === "checkbox" && elements[i].checked === true)
+		{
+			noOfCheckBoxes++;
+		}
+		
+	}
+	if(noOfCheckBoxes <2)
+	{
+		error.push("Please choose atleast two options for Campus");
+		ElementFocus.push("campus");	
+	}
+	//var elements = document.getElementsByName("input");
+	noOfRadioButtons =0;
+	for(var i =0; i<elements.length;i++)
+	{
+		if(elements[i].type === "radio" && elements[i].checked === true)
+		{
+			noOfRadioButtons++;
+		}
+	}
+	if(noOfRadioButtons <1)
+	{
+		error.push("Please choose an option for 'What interested you in University'");
+		ElementFocus.push("university");	
+	}
+	var errorMessage = "";
+    if (error.length > 0)
+    {
+    	for (var i = 0; i < error.length; i++)
+        {
+            errorMessage = errorMessage + error[i] + "\n";
+        }
+
+         alert(errorMessage);
+         var focusElement = ElementFocus[0];
+         document.getElementById(focusElement).focus();
+    }
+}
+function DataCheck()
+{
+	//get the textarea content
+	var data = document.getElementById("textdata").value;
+	var values = data.split(',');
+	//checking for empty at the last value
+	if(values[(values.length)-1] == "")
+	{
+		values.length--;
+	}
+	//to remove empty entries
+	/*for(var i=0;i<values.length;i++)
+	{
+		
+		//alert(values[i]);
+		if(values[i] == "")
+		{
+			values[i]= values[i+1];
+		}
+	}*/
+	//alert(values);
+	//Checking for 10 entires and updating maximum and average values
+	if(values.length >=10)
+	{
+		var count = 0;
+		var x =0,y =0;
+		for(var i=0;i<values.length;i++)
+		{
+			x=values[i];			
+			count = count + parseInt(values[i]);			
+			y = Math.max(x,y);
+		}
+		
+		count = count/(values.length);
+		document.getElementById("average").innerHTML = count;
+		document.getElementById("maximum").innerHTML = y;
+	}
+	else
+	{
+		alert("Please enter 10 values");
+		$("textarea").focus();
+	}
+}
+
+</script>
+
+</html>
